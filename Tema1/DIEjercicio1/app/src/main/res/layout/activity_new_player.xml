@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.myapplication.NewPlayer"
+    android:background="?attr/bg">
+
+    <TableLayout
+        android:id="@+id/mainTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TableRow
+            android:weightSum="3"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp">
+            <ImageView
+                android:id="@+id/userIcon"
+                android:src="@drawable/user_icon"
+                android:minHeight="48dp"
+                android:scaleType="centerInside"
+                app:tint="?attr/foregroundMainColor"/>
+
+            <EditText
+                android:id="@+id/editName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:hint="Name"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"
+                android:textColor="?attr/foregroundMainColor"
+                android:textColorHint="?attr/hintTextColor"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            android:layout_margin="10dp">
+
+            <EditText
+                android:id="@+id/editPhoneticName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:hint="Phonetic Name"
+                android:textSize="20sp"
+                android:layout_column="1"
+                android:layout_weight="3"
+                android:textColor="?attr/foregroundMainColor"
+                android:textColorHint="?attr/hintTextColor"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            android:layout_margin="10dp">
+
+            <EditText
+                android:id="@+id/nicknameEdit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:hint="Nickname"
+                android:textSize="20sp"
+                android:layout_column="1"
+                android:layout_weight="3"
+                android:textColor="?attr/foregroundMainColor"
+                android:textColorHint="?attr/hintTextColor"/>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/secondRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:id="@+id/photoIcon"
+                android:src="@drawable/camera_icon"
+                app:tint="?attr/foregroundMainColor"/>
+
+            <ImageView
+                android:id="@+id/photo"
+                android:src="@drawable/ic_launcher_foreground"
+                android:background="#5E8F4A"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                app:tint="?attr/foregroundMainColor"/>
+            <Button
+                android:id="@+id/addPhotoButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="CHANGE"
+                android:backgroundTint="#949494"
+                android:layout_marginEnd="0dp"
+                android:layout_weight="3"
+                android:textColor="?attr/foregroundMainColor"
+                app:cornerRadius="0dp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:weightSum="3"
+            android:layout_margin="10dp">
+            <ImageView
+                android:id="@+id/phoneIcon"
+                android:src="@drawable/phone_icon"
+                android:scaleType="centerInside"
+                app:tint="?attr/foregroundMainColor"/>
+
+            <EditText
+                android:id="@+id/editPhone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:minHeight="48dp"
+                android:hint="Phone"
+                android:textSize="20sp"
+                android:layout_weight="3"
+                android:textColor="?attr/foregroundMainColor"
+                android:textColorHint="?attr/hintTextColor"/>
+
+
+            <Spinner android:layout_column="2"
+                android:layout_gravity="bottom"
+                android:layout_height="match_parent"
+                android:textColor="?attr/foregroundMainColor"
+                android:backgroundTint="?attr/hintTextColor"
+                android:layout_marginStart="10dp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:weightSum="3"
+            android:layout_margin="10dp">
+            <ImageView
+                android:id="@+id/mailIcon"
+                android:src="@drawable/mail_icon"
+                android:scaleType="centerInside"
+                app:tint="?attr/foregroundMainColor"/>
+
+            <EditText
+                android:id="@+id/editMail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:minHeight="48dp"
+                android:hint="Email"
+                android:textSize="20sp"
+                android:layout_weight="3"
+                android:textColor="?attr/foregroundMainColor"
+                android:textColorHint="?attr/hintTextColor"/>
+
+        </TableRow>
+    </TableLayout>
+
+</ScrollView>
