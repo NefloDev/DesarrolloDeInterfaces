@@ -2,4 +2,6 @@
 <resources>
     <attr name="foregroundMainColor"/>
     <attr name="bg"/>
+    <attr name="hint"/>
+    <attr name="translucent"/>
 </resources>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.myapplication.NewPlayer"
+    tools:context="com.example.ejercicio2.NewPlayer"
     android:background="?attr/bg">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -79,44 +79,65 @@
             app:layout_constraintTop_toBottomOf="@+id/toolbar2"
             app:tint="?attr/foregroundMainColor" />
 
-        <EditText
-            android:id="@+id/editName"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editNameLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Name"
-            android:textColorHint="?attr/hintTextColor"
-            android:textSize="20sp"
-            android:textColor="?attr/foregroundMainColor"
-            android:layout_marginStart="10dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/userIcon"
-            app:layout_constraintTop_toTopOf="@id/userIcon"/>
+            app:layout_constraintTop_toTopOf="@id/userIcon">
 
-        <EditText
-            android:id="@+id/editPhoneticName"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:hint="Phonetic Name"
-            android:textSize="20sp"
-            android:textColor="?attr/foregroundMainColor"
-            android:textColorHint="?attr/hintTextColor"
-            android:layout_marginTop="10dp"
-            app:layout_constraintStart_toStartOf="@id/editName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editName"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:textColorHint="?attr/hintTextColor"
+                android:textSize="20sp"
+                android:textColor="?attr/foregroundMainColor"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/nicknameEdit"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editPhoneticNamelayout"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:hint="Nickname"
-            android:textSize="20sp"
-            android:textColor="?attr/foregroundMainColor"
-            android:textColorHint="?attr/hintTextColor"
-            android:layout_marginTop="10dp"
-            app:layout_constraintStart_toStartOf="@id/editPhoneticName"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginVertical="10dp"
+            app:layout_constraintStart_toStartOf="@id/editNameLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editPhoneticName"/>
+            app:layout_constraintTop_toBottomOf="@id/editNameLayout">
+
+            <EditText
+                android:id="@+id/editPhoneticName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Phonetic Name"
+                android:textSize="20sp"
+                android:textColor="?attr/foregroundMainColor"
+                android:textColorHint="?attr/hintTextColor"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nicknameEditLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginVertical="10dp"
+            app:layout_constraintStart_toStartOf="@id/editPhoneticNamelayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editPhoneticNamelayout">
+            <EditText
+                android:id="@+id/nicknameEdit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Nickname"
+                android:textSize="20sp"
+                android:textColor="?attr/foregroundMainColor"
+                android:textColorHint="?attr/hintTextColor"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <ImageView
             android:id="@+id/photoIcon"
@@ -125,7 +146,7 @@
             android:src="@drawable/camera_icon"
             android:layout_marginTop="10dp"
             app:tint="?attr/foregroundMainColor"
-            app:layout_constraintTop_toBottomOf="@id/nicknameEdit"
+            app:layout_constraintTop_toBottomOf="@id/nicknameEditLayout"
             app:layout_constraintStart_toStartOf="@id/userIcon"/>
 
         <ImageView
@@ -203,19 +224,26 @@
             app:layout_constraintStart_toStartOf="@id/photoIcon"
             app:layout_constraintTop_toBottomOf="@id/phoneIcon"/>
 
-        <EditText
-            android:id="@+id/editMail"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editMailLayout"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:minHeight="48dp"
-            android:hint="Email"
-            android:textSize="20sp"
-            android:textColor="?attr/foregroundMainColor"
-            android:textColorHint="?attr/hintTextColor"
+            android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             app:layout_constraintStart_toEndOf="@id/mailIcon"
             app:layout_constraintTop_toTopOf="@id/mailIcon"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <EditText
+                android:id="@+id/editMail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minHeight="48dp"
+                android:hint="Email"
+                android:textSize="20sp"
+                android:textColor="?attr/foregroundMainColor"
+                android:textColorHint="?attr/hintTextColor"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
