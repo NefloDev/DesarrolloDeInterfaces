@@ -198,27 +198,34 @@
                     android:src="@drawable/phone_icon"
                     app:tint="?attr/foregroundMainColor" />
 
-                <EditText
-                    android:id="@+id/editPhone"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="10dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:hint="Phone"
-                    android:minHeight="48dp"
-                    android:textColor="?attr/foregroundMainColor"
-                    android:textColorHint="?attr/hintTextColor"
-                    android:textSize="20sp" />
+                    android:orientation="vertical">
 
+                    <EditText
+                        android:id="@+id/editPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:hint="Phone"
+                        android:minHeight="48dp"
+                        android:textColor="?attr/foregroundMainColor"
+                        android:textColorHint="?attr/hintTextColor"
+                        android:textSize="20sp" />
 
-                <Spinner
-                    android:id="@+id/spinnerPhone"
-                    android:layout_height="match_parent"
-                    android:layout_column="2"
-                    android:layout_gravity="bottom"
-                    android:layout_marginStart="10dp"
-                    android:backgroundTint="?attr/hintTextColor"
-                    android:textColor="?attr/foregroundMainColor" />
+                    <Spinner
+                        android:id="@+id/spinnerPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_column="2"
+                        android:layout_gravity="bottom"
+                        android:layout_marginStart="10dp"
+                        android:backgroundTint="?attr/hintTextColor"
+                        android:textColor="?attr/foregroundMainColor" />
+                </LinearLayout>
+
 
             </TableRow>
 

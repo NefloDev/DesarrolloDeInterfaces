@@ -2,7 +2,10 @@ package com.example.practica4;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,12 +33,25 @@ public class NewPlayer extends AppCompatActivity {
         );
 
         Spinner listPeliculas = findViewById(R.id.spinnerPhone);
+        EditText phone = findViewById(R.id.editPhone);
 
         ArrayAdapter<String> adapter =  new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, peliculas);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         listPeliculas.setAdapter(adapter);
+
+        listPeliculas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                phone.setText(listPeliculas.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
     }
 
