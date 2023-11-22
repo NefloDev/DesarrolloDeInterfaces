@@ -42,13 +42,6 @@ public class About extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
-
-        recyclerView = findViewById(R.id.recyclerView);
-
-        AboutAdapter adapter = new AboutAdapter(images, names, years, this);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
 
     }
 }
