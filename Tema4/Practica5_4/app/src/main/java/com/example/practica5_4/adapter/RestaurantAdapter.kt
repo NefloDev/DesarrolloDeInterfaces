@@ -1,15 +1,17 @@
 package com.example.practica5_4.adapter
 
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
+import android.view.View.OnTouchListener
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.RatingBar
+import android.widget.RatingBar.OnRatingBarChangeListener
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView.Adapter
-import androidx.recyclerview.widget.RecyclerView.VISIBLE
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.practica5_4.R
 
@@ -42,9 +44,16 @@ class RestaurantAdapter(val names : List<String>, val locations : List<String>, 
         holder.restaurantImage.setImageResource(images[position])
         holder.restaurantLocation.text = locations[position]
         holder.restaurantRatingBar.rating = ratings[position]
+        holder.restaurantRating.visibility = View.GONE
         holder.restaurantRating.text = ratings[position].toString()
 
-        holder.restaurantRatingBar.setOnClickListener{holder.restaurantRating.visibility = VISIBLE}
+        (holder.restaurantRatingBar as View).setOnTouchListener { v, e ->
+            when (e!!.action) {
+                MotionEvent.ACTION_DOWN -> holder.restaurantRating.visibility = View.VISIBLE
+            }
+            v!!.performClick()
+        }
+
     }
 
 }
