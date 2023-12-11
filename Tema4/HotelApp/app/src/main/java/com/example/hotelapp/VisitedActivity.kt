@@ -25,6 +25,8 @@ class VisitedActivity : AppCompatActivity() {
 
         binding.visitedRecycler.adapter = VisitedRecyclerViewAdapter(hotelImageList, hotelRatingList)
 
+        //El Scrollview no es necesario ya que RecyclerView tiene su propio atributo para ello
+
     }
 
     inner class VisitedRecyclerViewAdapter (

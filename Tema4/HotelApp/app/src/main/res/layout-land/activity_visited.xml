@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".VisitedActivity">
 
+    <!-- El Scrollview no es necesario ya que RecyclerView tiene su propio atributo para ello -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/visitedRecycler"
         android:layout_width="match_parent"
