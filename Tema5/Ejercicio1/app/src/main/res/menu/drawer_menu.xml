@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/inboxFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/inboxicon"
+        app:showAsAction="withText"
+        android:title="Inbox" />
+
+    <item
+        android:id="@+id/outboxFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/outboxicon"
+        app:showAsAction="withText"
+        android:title="Outbox" />
+
+    <item
+        android:id="@+id/trashFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/trashicon"
+        app:showAsAction="withText"
+        android:title="Trash" />
+
+    <item
+        android:id="@+id/spamFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/warningicon"
+        app:showAsAction="withText"
+        android:title="Spam" />
+</menu>

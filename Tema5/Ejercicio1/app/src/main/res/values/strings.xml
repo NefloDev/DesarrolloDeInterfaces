@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Ejercicio1</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <array name="spinnerArray">
+        <item>carladom@gmail.com</item>
+        <item>alu123@ieselcaminas.com</item>
+        <item>correocarla@gmail.es</item>
+    </array>
+</resources>
