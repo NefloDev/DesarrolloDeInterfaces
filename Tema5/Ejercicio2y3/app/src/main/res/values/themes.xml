@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Ejercicio2y3" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="iconTint">@color/black</item>
+    </style>
+
+    <style name="Theme.Ejercicio2y3" parent="Base.Theme.Ejercicio2y3" />
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyToolbarStyle" parent="Widget.MaterialComponents.Toolbar">
+        <item name="titleTextColor">@color/white</item>
+    </style>
+    <style name="ToolbarColoredBackArrow">
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+</resources>
