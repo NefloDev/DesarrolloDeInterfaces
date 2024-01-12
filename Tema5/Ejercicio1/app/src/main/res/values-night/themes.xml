@@ -3,5 +3,6 @@
     <style name="Base.Theme.Ejercicio1" parent="Theme.Material3.Dark.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="spinnerText">@color/white</item>
     </style>
 </resources>

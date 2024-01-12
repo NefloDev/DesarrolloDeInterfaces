@@ -3,6 +3,7 @@
     <style name="Base.Theme.Ejercicio1" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="spinnerText">@color/black</item>
     </style>
 
     <style name="Theme.Ejercicio1" parent="Base.Theme.Ejercicio1" />
