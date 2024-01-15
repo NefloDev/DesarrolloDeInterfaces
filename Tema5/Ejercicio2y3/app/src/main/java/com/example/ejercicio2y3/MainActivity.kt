@@ -1,6 +1,7 @@
 package com.example.ejercicio2y3
 
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.materialToolbar)
+
         this.title = "Home"
 
         val appBarConfiguration =
