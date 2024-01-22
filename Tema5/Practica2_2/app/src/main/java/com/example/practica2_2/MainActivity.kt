@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.toolbar.navigationIcon?.setTint(Color.WHITE)
 
+        binding.pager.setPageTransformer(CustomPageTransformer())
+
         binding.pager.adapter = object : FragmentStateAdapter(this@MainActivity){
             override fun getItemCount(): Int {
                 return 3
