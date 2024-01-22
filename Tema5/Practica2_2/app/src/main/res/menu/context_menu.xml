@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/editicon"
+        android:iconTint="@color/white"
+        app:showAsAction="ifRoom"
+        android:title="Editar" />
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/trashicon"
+        android:iconTint="@color/white"
+        app:showAsAction="ifRoom"
+        android:title="Eliminar" />
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/shareicon"
+        android:iconTint="@color/white"
+        app:showAsAction="ifRoom"
+        android:title="Compartir" />
+</menu>
