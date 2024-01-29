@@ -8,6 +8,13 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.practica2_2.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
+/**
+ * MainActivity represents the principal activity using ViewPager2 and TabLayout to navigate
+ * through Fragments
+ * @author Alejandro Nebot Flores
+ * @version 2024-01-29
+ */
+
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
