@@ -1,0 +1,68 @@
+<!-- activity_image_palette.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ImagePalette">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:title="Palette" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+        android:transitionName="tranphoto"
+        android:scaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/lightVibrantText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:text="Light Vibrant"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/mutedText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:text="Muted"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/darkMutedText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:text="Dark Muted"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lightMutedText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:text="Light Muted"
+        android:textStyle="bold" />
+
+    <!-- Puedes agregar más elementos según tus necesidades -->
+
+</LinearLayout>
