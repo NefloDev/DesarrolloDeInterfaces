@@ -2,7 +2,6 @@ package com.example.palette;
 
 import android.app.Activity;
 import android.app.ActivityOptions;
-import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -18,15 +17,10 @@ import java.util.ArrayList;
 
 public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.TarjViewHolder> {
 
-    private ArrayList<Tarjeta> items;
-    private View.OnClickListener onClickListener;
+    private final ArrayList<Tarjeta> items;
 
     public CardsAdapter(ArrayList<Tarjeta> items) {
         this.items = items;
-    }
-
-    public void setOnClick(View.OnClickListener onClickListener) {
-        this.onClickListener = onClickListener;
     }
 
     public static class TarjViewHolder extends RecyclerView.ViewHolder {
