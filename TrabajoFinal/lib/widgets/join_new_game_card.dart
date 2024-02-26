@@ -69,6 +69,7 @@ class JoinNewGameCardState extends State<JoinNewGameCard>{
                     if(value == null || value.isEmpty || value.length != 4){
                       return "El código debe ser\nde 4 carácteres";
                     }
+                    return null;
                   },
                 ),
                 Padding(
