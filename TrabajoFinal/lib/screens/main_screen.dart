@@ -35,10 +35,12 @@ class MainScreenState extends State<MainScreen>{
                 top: 400,
                 left: -700,
                 child: TranslationAnimatedWidget.tween(
+                  curve: Curves.fastEaseInToSlowEaseOut,
                   enabled: animate,
                   translationDisabled: const Offset(0,0),
                   translationEnabled: const Offset(-500, 0),
                   child: TranslationAnimatedWidget.tween(
+                    curve: Curves.fastEaseInToSlowEaseOut,
                     enabled: animate2,
                     translationDisabled: const Offset(0,0),
                     translationEnabled: const Offset(500, 0),
@@ -71,10 +73,12 @@ class MainScreenState extends State<MainScreen>{
                 left: -25,
                 child: TranslationAnimatedWidget.tween(
                   enabled: animate,
+                  curve: Curves.fastEaseInToSlowEaseOut,
                   translationDisabled: const Offset(0,0),
                   translationEnabled: const Offset(0, -400),
                   child: TranslationAnimatedWidget.tween(
                     enabled: animate2,
+                    curve: Curves.bounceOut,
                     translationDisabled: const Offset(0,0),
                     translationEnabled: const Offset(0, 400),
                     duration: const Duration(milliseconds: 700),
@@ -100,10 +104,12 @@ class MainScreenState extends State<MainScreen>{
                 top: 550,
                 right: -600,
                 child: TranslationAnimatedWidget.tween(
+                  curve: Curves.fastEaseInToSlowEaseOut,
                   enabled: animate,
                   translationDisabled: const Offset(0,0),
                   translationEnabled: const Offset(500, 0),
                   child: TranslationAnimatedWidget.tween(
+                    curve: Curves.fastEaseInToSlowEaseOut,
                     enabled: animate2,
                     translationDisabled: const Offset(0,0),
                     translationEnabled: const Offset(-500, 0),
@@ -125,11 +131,13 @@ class MainScreenState extends State<MainScreen>{
                 left: -250,
                 top: 10,
                 child: RotationAnimatedWidget.tween(
+                  curve: Curves.fastEaseInToSlowEaseOut,
                   enabled: animate2,
                   rotationDisabled: Rotation.deg(x: 0),
                   rotationEnabled: Rotation.deg(z:-8),
                   delay: Duration(milliseconds: 200),
                   child: TranslationAnimatedWidget.tween(
+                    curve: Curves.fastEaseInToSlowEaseOut,
                     enabled: animate2,
                     translationDisabled: const Offset(0,0),
                     translationEnabled: const Offset(110, 0),
@@ -147,11 +155,13 @@ class MainScreenState extends State<MainScreen>{
                 top: -70,
                 right: -330,
                 child: RotationAnimatedWidget.tween(
+                  curve: Curves.fastEaseInToSlowEaseOut,
                   enabled: animate2,
                   rotationDisabled: Rotation.deg(x: 0),
                   rotationEnabled: Rotation.deg(z:-15),
                   delay: Duration(milliseconds: 200),
                   child: TranslationAnimatedWidget.tween(
+                    curve: Curves.fastEaseInToSlowEaseOut,
                     enabled: animate2,
                     translationDisabled: const Offset(0,0),
                     translationEnabled: const Offset(-110, 0),

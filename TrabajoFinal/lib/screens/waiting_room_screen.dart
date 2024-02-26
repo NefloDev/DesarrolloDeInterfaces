@@ -1,19 +1,45 @@
+import "dart:math";
+
+import "package:animated_widgets/animated_widgets.dart";
 import "package:flutter/material.dart";
 import "package:trabajo_final/constants/custom-colors.dart";
 import "package:trabajo_final/models/user.dart";
+import "package:trabajo_final/screens/card_list_screen.dart";
+import "package:trabajo_final/screens/play_screen.dart";
 import "package:trabajo_final/widgets/custom_icon_button.dart";
 import "package:trabajo_final/widgets/custom_menu_button.dart";
 import "package:trabajo_final/widgets/custom_shaped_box.dart";
 import "package:trabajo_final/widgets/diagonal_box.dart";
 
+const int codeLength = 4;
+const firstCharUppercase = 65;
+
+String generateRandomCode(){
+  Random rand = Random();
+  String temp = "";
+
+  for(int i = 0; i < codeLength; i++){
+    temp += String.fromCharCode(rand.nextInt(26) + firstCharUppercase);
+  }
+
+  return temp;
+}
+
 class WaitingRoomScreen extends StatefulWidget {
-  const WaitingRoomScreen({super.key});
+  const WaitingRoomScreen({super.key, this.code = "ABCD"});
+
+  final String code;
 
   @override
   State<StatefulWidget> createState() => WaitingRoomScreenState();
 }
 
 class WaitingRoomScreenState extends State<WaitingRoomScreen>{
+
+  int delay = 100;
+  int move = -400;
+  late bool animate;
+  late bool animate2;
 
   List<User> users = [
     User("Player 1"),
@@ -32,29 +58,11 @@ class WaitingRoomScreenState extends State<WaitingRoomScreen>{
     User("Player 14")
   ];
 
-  List<Widget> _getUserList(){
-    List<Widget> playerList = [];
-    for(int i = 0; i< users.length; i++){
-      playerList.add(
-        Padding(
-          padding: const EdgeInsets.only(bottom: 15),
-          child: CustomShapedBox(
-              radius: BorderRadius.all(Radius.circular(50)),
-              height: 50,
-              width: 350,
-              color: CustomColors.alternateColors[i],
-              alignment: Alignment.center,
-              child: Text(users[i].name.toUpperCase(),
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 22
-                ),
-              ),
-          ),
-        )
-      );
-    }
-    return playerList;
+  @override
+  void initState(){
+    super.initState();
+    animate = true;
+    animate2 = false;
   }
 
   @override
@@ -62,32 +70,79 @@ class WaitingRoomScreenState extends State<WaitingRoomScreen>{
     return Scaffold(
         body: Stack(
             children: [
-              DiagonalBox(
-                angle: -10,
+              Positioned(
                 top: -100,
-                height: 350,
-                width: (MediaQuery.of(context).size.width + 100),
-                color: CustomColors.bgLight,
-                shadow: false,
+                child: TranslationAnimatedWidget.tween(
+                  enabled: animate,
+                  curve: Curves.easeOut,
+                  translationDisabled: const Offset(0, -350),
+                  translationEnabled: const Offset(0, 0),
+                  child: DiagonalBox(
+                    angle: -10,
+                    height: 350,
+                    width: (MediaQuery.of(context).size.width + 100),
+                    color: CustomColors.bgLight,
+                    shadow: false,
+                  ),
+                ),
               ),
-              const DiagonalBox(
-                alignment: Alignment.centerLeft,
-                padding: 0,
+              Positioned(
                 top: 120,
                 left: 40,
-                angle: 8,
-                height: 80,
-                width: 250,
-                color: CustomColors.mainOrange,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 20),
-                  child: Text("Código de\npartida",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: CustomColors.bgBlue
+                child: TranslationAnimatedWidget.tween(
+                  enabled: animate2,
+                  curve: Curves.fastEaseInToSlowEaseOut,
+                  translationDisabled: const Offset(0, 0),
+                  translationEnabled: const Offset(0, -200),
+                  child: TranslationAnimatedWidget.tween(
+                    enabled: animate,
+                    curve: Curves.bounceOut,
+                    translationDisabled: const Offset(0, -200),
+                    translationEnabled: const Offset(0, 0),
+                    child: const DiagonalBox(
+                      alignment: Alignment.centerLeft,
+                      padding: 0,
+                      angle: 8,
+                      height: 80,
+                      width: 250,
+                      color: CustomColors.mainOrange,
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 20),
+                        child: Text("Código de\npartida",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: CustomColors.bgBlue
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
+              ),
+              Positioned(
+                  left: 160,
+                  top: 110,
+                  child: TranslationAnimatedWidget.tween(
+                    enabled: animate2,
+                    curve: Curves.fastEaseInToSlowEaseOut,
+                    translationDisabled: const Offset(0, 0),
+                    translationEnabled: const Offset(0, -200),
+                    child: TranslationAnimatedWidget.tween(
+                      enabled: animate,
+                      curve: Curves.bounceOut,
+                      translationDisabled: const Offset(0, -200),
+                      translationEnabled: const Offset(0, 0),
+                      delay: const Duration(milliseconds: 200),
+                      child: Text(
+                          widget.code,
+                        style: const TextStyle(
+                          fontSize: 34,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold
+                        ),
+                      ),
+                    ),
+                  )
               ),
               Positioned(
                 top: 280,
@@ -96,46 +151,139 @@ class WaitingRoomScreenState extends State<WaitingRoomScreen>{
                 bottom: 0,
                 child: SingleChildScrollView(
                   child: Column(
-                    children: _getUserList(),
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(users.length, (i){
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 15),
+                        child: TranslationAnimatedWidget.tween(
+                          enabled: animate2,
+                          curve: Curves.fastEaseInToSlowEaseOut,
+                          translationDisabled: const Offset(0,0),
+                          translationEnabled: Offset(move*pow(-1.0, i) as double, 0),
+                          delay: Duration(milliseconds: (delay * i) + 500),
+                          child: TranslationAnimatedWidget.tween(
+                            enabled: animate,
+                            curve: Curves.fastEaseInToSlowEaseOut,
+                            translationDisabled: Offset(move*pow(-1.0, i) as double,0),
+                            translationEnabled: const Offset(0, 0),
+                            delay: Duration(milliseconds: (delay * i)),
+                            duration: const Duration(milliseconds: 500),
+                            child: CustomShapedBox(
+                              radius: const BorderRadius.all(Radius.circular(50)),
+                              height: 50,
+                              width: 350,
+                              color: CustomColors.alternateColors[i],
+                              alignment: Alignment.center,
+                              child: Text(users[i].name.toUpperCase(),
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 22
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
                   ),
                 ),
               ),
-              const CustomMenuButton(
-                  top: 50,
-                  right: -110,
-                  height: 50,
-                  width: 200,
-                  buttonColor: CustomColors.mainFuchsia,
-                  text: Text("Cartas",
-                      style: TextStyle(
-                          fontSize: 16
-                      )
+              Positioned(
+                top: 50,
+                right: -210,
+                child: TranslationAnimatedWidget.tween(
+                  enabled: animate,
+                  curve: Curves.easeOut,
+                  translationDisabled: const Offset(0, 0),
+                  translationEnabled: const Offset(-100, 0),
+                  child: CustomMenuButton(
+                      height: 50,
+                      width: 200,
+                      buttonColor: CustomColors.mainFuchsia,
+                      text: const Text("Cartas",
+                          style: TextStyle(
+                              fontSize: 16
+                          )
+                      ),
+                      customFunction: () async {
+                        setState(() {
+                          animate = false;
+                          animate2 = true;
+                        });
+                        await Future.delayed(const Duration(milliseconds: 600), (){
+                          Navigator.push(context, PageRouteBuilder(pageBuilder: (_,__,___) => const CardListScreen()))
+                              .then((value){
+                                setState(() {
+                                  animate2 = false;
+                                  animate = true;
+                                });
+                          });
+                        });
+                      },
+                      alignment: Alignment.centerLeft
                   ),
-                  alignment: Alignment.centerLeft
+                ),
               ),
               Positioned(
                   top: 220,
-                  left: 20,
-                  child: Text("${users.length}/14 Jugadores en la sala:",
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 24
-                      )
+                  left: 0,
+                  right: 0,
+                  child: TranslationAnimatedWidget.tween(
+                    enabled: animate,
+                    translationDisabled: const Offset(-400,0),
+                    translationEnabled: const Offset(0,0),
+                    curve: Curves.fastEaseInToSlowEaseOut,
+                    child: OpacityAnimatedWidget.tween(
+                      opacityDisabled: 0.0,
+                      opacityEnabled: 1.0,
+                      child: Text("${users.length}/14 Jugadores en la sala:",
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 22
+                          )
+                      ),
+                    ),
                   )
               ),
-              CustomIconButton(
-                  top: 100,
-                  left: 20,
-                  angle: 0,
-                  buttonSize: 40,
-                  color: Colors.white,
-                  icon: const Icon(
-                      Icons.arrow_back,
-                      color: CustomColors.bgLight,
-                      size: 20),
-                  onPressed: (){
-                    Navigator.pop(context);
-                  }
+              Positioned(
+                top: 100,
+                left: 20,
+                child: TranslationAnimatedWidget.tween(
+                  enabled: animate2,
+                  curve: Curves.fastEaseInToSlowEaseOut,
+                  translationDisabled: const Offset(0, 0),
+                  translationEnabled: const Offset(0, -400),
+                  child: TranslationAnimatedWidget.tween(
+                    enabled: animate,
+                    curve: Curves.bounceOut,
+                    translationDisabled: const Offset(0, -400),
+                    translationEnabled: const Offset(0, 0),
+                    delay: const Duration(milliseconds: 200),
+                    child: CustomIconButton(
+                        angle: 0,
+                        buttonSize: 40,
+                        color: Colors.white,
+                        icon: const Icon(
+                            Icons.arrow_back,
+                            color: CustomColors.bgLight,
+                            size: 20),
+                        onPressed: () async {
+                          setState(() {
+                            animate = false;
+                            animate2 = true;
+                          });
+                          await Future.delayed(const Duration(milliseconds: 600), (){
+                            Navigator.pop(context, PageRouteBuilder(pageBuilder: (_,__,___) => const PlayScreen()));
+                          }).then((value){
+                            setState(() {
+                              animate2 = false;
+                            });
+                          });
+                        }
+                    ),
+                  ),
+                ),
               )
             ]
         )

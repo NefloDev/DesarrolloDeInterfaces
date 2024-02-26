@@ -6,7 +6,7 @@ class CustomColors{
   static const Color bgLight = Color(0xFF334E8F);
   //Main colors
   static const Color mainPurple = Color(0xFFA725BD);
-  static const Color mainFuchsia = Color(0xFFF437F4);
+  static const Color mainFuchsia = Color(0xFFDA37F4);
   static const Color mainCyan = Color(0xFF00F7FF);
   static const Color mainBlue = Color(0xFF369EFF);
   static const Color mainLilac = Color(0xFFC5C5FF);

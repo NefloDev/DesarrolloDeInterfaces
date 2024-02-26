@@ -20,118 +20,123 @@ class PlayScreen extends StatefulWidget {
 
 class PlayScreenState extends State<PlayScreen>{
   late bool animate;
-  late bool animate2;
 
   @override
   void initState() {
     super.initState();
-    animate = false;
-    animate2 = true;
+    animate = true;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Stack(
-          children: [
-            Positioned(
-              top: 50,
-              left: -700,
-              child: TranslationAnimatedWidget.tween(
-                enabled: animate2,
-                translationDisabled: const Offset(0,0),
-                translationEnabled: const Offset(650, 0),
-                duration: Duration(milliseconds: 500),
-                child: CustomMenuButton(
-                    height: 120,
-                    width: 400,
-                    buttonColor: CustomColors.mainCyan,
-                    text: const Text(
-                      CustomStrings.jugarButtonText,
-                      style: TextStyle(color: CustomColors.bgBlue, fontSize: 40, fontWeight: FontWeight.bold),
-                    ),
-                    customFunction: () {},
-                    alignment: Alignment.centerRight),
+        child: SingleChildScrollView(
+          child: Stack(
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height,
               ),
-            ),
-            Positioned(
-              top: -40,
-              left: -260,
-              child: RotationAnimatedWidget.tween(
-                enabled: animate2,
-                rotationDisabled: Rotation.deg(x: 0),
-                rotationEnabled: Rotation.deg(z:8),
-                delay: Duration(milliseconds: 400),
+              Positioned(
+                top: 50,
+                left: -700,
                 child: TranslationAnimatedWidget.tween(
-                  enabled: animate2,
+                  curve: Curves.fastEaseInToSlowEaseOut,
+                  enabled: animate,
                   translationDisabled: const Offset(0,0),
-                  translationEnabled: const Offset(120, 0),
-                  delay: Duration(milliseconds: 400),
-                  child: DiagonalBox(
-                      angle: 0,
-                      height: (MediaQuery.of(context).size.height + 20),
-                      width: 200,
-                      color: CustomColors.mainPurple
+                  translationEnabled: const Offset(650, 0),
+                  duration: const Duration(milliseconds: 500),
+                  child: CustomMenuButton(
+                      height: 120,
+                      width: 400,
+                      buttonColor: CustomColors.mainCyan,
+                      text: const Text(
+                        CustomStrings.jugarButtonText,
+                        style: TextStyle(color: CustomColors.bgBlue, fontSize: 40, fontWeight: FontWeight.bold),
+                      ),
+                      customFunction: () {},
+                      alignment: Alignment.centerRight),
+                ),
+              ),
+              Positioned(
+                top: -40,
+                left: -260,
+                child: RotationAnimatedWidget.tween(
+                  curve: Curves.fastEaseInToSlowEaseOut,
+                  enabled: animate,
+                  rotationDisabled: Rotation.deg(x: 0),
+                  rotationEnabled: Rotation.deg(z:8),
+                  delay: const Duration(milliseconds: 400),
+                  child: TranslationAnimatedWidget.tween(
+                    curve: Curves.fastEaseInToSlowEaseOut,
+                    enabled: animate,
+                    translationDisabled: const Offset(0,0),
+                    translationEnabled: const Offset(120, 0),
+                    delay: const Duration(milliseconds: 400),
+                    child: DiagonalBox(
+                        angle: 0,
+                        height: (MediaQuery.of(context).size.height + 20),
+                        width: 200,
+                        color: CustomColors.mainPurple
+                    ),
                   ),
                 ),
               ),
-            ),
-            Positioned(
-              top: 40,
-              left: -110,
-              child: TranslationAnimatedWidget.tween(
-                  enabled: animate2,
-                  delay: Duration(milliseconds: 400),
-                  translationDisabled: const Offset(0,0),
-                  translationEnabled: const Offset(130, 0),
-                  child: CustomIconButton(
-                    onPressed: () async {
-                      setState(() {
-                        animate = true;
-                        animate2 = false;
-                      });
-                      await Future.delayed(Duration(milliseconds: 450), (){
-                        Navigator.pop(context, PageRouteBuilder(pageBuilder: (_,__,___) => const MainScreen()));
-                      });
-                    }
-                  )
-              ),
-            ),
-            Positioned(
-              top: 250,
-              right: -300,
-              child: TranslationAnimatedWidget.tween(
-                enabled: animate2,
-                delay: const Duration(milliseconds: 400),
-                translationDisabled: const Offset(0,0),
-                translationEnabled: const Offset(-320, 0),
-                child: WidgetFlipper(
-                    frontWidget: CreateNewGameCard(
-                      onPressed: () async{
+              Positioned(
+                top: 40,
+                left: -110,
+                child: TranslationAnimatedWidget.tween(
+                    curve: Curves.fastEaseInToSlowEaseOut,
+                    enabled: animate,
+                    delay: const Duration(milliseconds: 400),
+                    translationDisabled: const Offset(0,0),
+                    translationEnabled: const Offset(130, 0),
+                    child: CustomIconButton(
+                      onPressed: () async {
                         setState(() {
-                          animate = true;
-                          animate2 = false;
+                          animate = false;
                         });
-                        await Future.delayed(const Duration(milliseconds: 450), (){
-                          Navigator.push(context, PageRouteBuilder(pageBuilder: (_,__,___) => const WaitingRoomScreen()))
-                          .then((value){
-                            setState(() {
-                              animate = false;
-                              animate2 = true;
-                            });
-                          });
+                        await Future.delayed(const Duration(milliseconds: 500), (){
+                          Navigator.pop(context, PageRouteBuilder(pageBuilder: (_,__,___) => const MainScreen()));
                         });
-
-                      },
-                    ),
-                    backWidget: JoinNewGameCard()
+                      }
+                    )
                 ),
               ),
-            )
-          ],
-        ),
-      ),
+              Positioned(
+                top: 250,
+                right: -300,
+                child: TranslationAnimatedWidget.tween(
+                    curve: Curves.fastEaseInToSlowEaseOut,
+                  enabled: animate,
+                  delay: const Duration(milliseconds: 400),
+                  translationDisabled: const Offset(0,0),
+                  translationEnabled: const Offset(-320, 0),
+                  child: WidgetFlipper(
+                      frontWidget: CreateNewGameCard(
+                        onPressed: () async{
+                          setState(() {
+                            animate = false;
+                          });
+                          await Future.delayed(const Duration(milliseconds: 500), (){
+                            Navigator.push(context, PageRouteBuilder(pageBuilder: (_,__,___) => WaitingRoomScreen()))
+                            .then((value){
+                              setState(() {
+                                animate = true;
+                              });
+                            });
+                          });
+
+                        },
+                      ),
+                      backWidget: const JoinNewGameCard()
+                  )
+                )
+              )
+            ]
+          )
+        )
+      )
     );
   }
 }
