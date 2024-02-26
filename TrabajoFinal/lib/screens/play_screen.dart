@@ -8,6 +8,7 @@ import 'package:trabajo_final/widgets/custom_icon_button.dart';
 import 'package:trabajo_final/widgets/create_new_game_card.dart';
 import 'package:trabajo_final/widgets/custom_menu_button.dart';
 import 'package:trabajo_final/widgets/diagonal_box.dart';
+import 'package:trabajo_final/widgets/flipped_card.dart';
 import 'package:trabajo_final/widgets/join_new_game_card.dart';
 import 'package:trabajo_final/widgets/widget_flipper.dart';
 
@@ -108,28 +109,28 @@ class PlayScreenState extends State<PlayScreen>{
                 right: -300,
                 child: TranslationAnimatedWidget.tween(
                     curve: Curves.fastEaseInToSlowEaseOut,
-                  enabled: animate,
-                  delay: const Duration(milliseconds: 400),
-                  translationDisabled: const Offset(0,0),
-                  translationEnabled: const Offset(-320, 0),
-                  child: WidgetFlipper(
-                      frontWidget: CreateNewGameCard(
-                        onPressed: () async{
-                          setState(() {
-                            animate = false;
-                          });
-                          await Future.delayed(const Duration(milliseconds: 500), (){
-                            Navigator.push(context, PageRouteBuilder(pageBuilder: (_,__,___) => WaitingRoomScreen()))
-                            .then((value){
-                              setState(() {
-                                animate = true;
+                    enabled: animate,
+                    delay: const Duration(milliseconds: 400),
+                    translationDisabled: const Offset(0,0),
+                    translationEnabled: const Offset(-320, 0),
+                    child: FlippedCard(
+                        frontWidget: CreateNewGameCard(
+                          onPressed: () async{
+                            setState(() {
+                              animate = false;
+                            });
+                            await Future.delayed(const Duration(milliseconds: 500), (){
+                              Navigator.push(context, PageRouteBuilder(pageBuilder: (_,__,___) => WaitingRoomScreen()))
+                              .then((value){
+                                setState(() {
+                                  animate = true;
+                                });
                               });
                             });
-                          });
 
-                        },
-                      ),
-                      backWidget: const JoinNewGameCard()
+                          },
+                        ),
+                        backWidget: const JoinNewGameCard()
                   )
                 )
               )
