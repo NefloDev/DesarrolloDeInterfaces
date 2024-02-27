@@ -259,7 +259,7 @@ class CardListScreenState extends State<CardListScreen>{
                           icon: const Icon(
                               Icons.add,
                               size: 50,
-                              color: CustomColors.bgBlue
+                              color: CustomColors.bgDark
                           ),
                           color: CustomColors.mainBlue,
                           buttonSize: 90,

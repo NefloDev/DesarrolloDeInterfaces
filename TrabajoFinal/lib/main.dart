@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(
                 seedColor: Colors.deepPurple,
-                background: CustomColors.bgBlue
+                background: CustomColors.bgDark
             ),
             useMaterial3: true,
             fontFamily: "Gotham",

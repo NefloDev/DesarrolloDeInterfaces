@@ -121,7 +121,7 @@ class WaitingRoomScreenState extends State<WaitingRoomScreen>{
                           child: Text("Código de\npartida",
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                                color: CustomColors.bgBlue
+                                color: CustomColors.bgDark
                             ),
                           ),
                         ),

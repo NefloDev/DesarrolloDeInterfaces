@@ -30,7 +30,7 @@ class CustomMenuButton extends StatelessWidget {
             onPressed: customFunction,
             style: ButtonStyle(
                 backgroundColor: MaterialStatePropertyAll(buttonColor),
-                foregroundColor: const MaterialStatePropertyAll(CustomColors.bgBlue),
+                foregroundColor: const MaterialStatePropertyAll(CustomColors.bgDark),
                 elevation: const MaterialStatePropertyAll(10),
                 shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(25)

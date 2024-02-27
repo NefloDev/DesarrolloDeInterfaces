@@ -2,7 +2,7 @@ import 'dart:ui';
 
 class CustomColors{
   //Background colors
-  static const Color bgBlue = Color(0xFF333369);
+  static const Color bgDark = Color(0xFF333369);
   static const Color bgLight = Color(0xFF334E8F);
   //Main colors
   static const Color mainPurple = Color(0xFFA725BD);

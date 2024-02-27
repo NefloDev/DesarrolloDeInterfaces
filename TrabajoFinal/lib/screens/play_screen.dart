@@ -57,7 +57,7 @@ class PlayScreenState extends State<PlayScreen>{
                         buttonColor: CustomColors.mainCyan,
                         text: const Text(
                           CustomStrings.jugarButtonText,
-                          style: TextStyle(color: CustomColors.bgBlue, fontSize: 40, fontWeight: FontWeight.bold),
+                          style: TextStyle(color: CustomColors.bgDark, fontSize: 40, fontWeight: FontWeight.bold),
                         ),
                         customFunction: () {},
                         alignment: Alignment.centerRight),
