@@ -9,7 +9,7 @@ class CustomStrings{
   static const String card = "Carta";
   static const String cards = "Cartas";
   static const String newCard = "Nueva Carta";
-  static const String finishGameString = "Si os ha parecido una partida corta podeis"
+  static const String finishGameString = "Si os ha parecido una partida corta podeis "
       "agregar más cartas en la sección \"Cartas\" del menú de la partida"
       "\n(Solo se aplicarán las cartas del anfitrión de la partida)";
 
