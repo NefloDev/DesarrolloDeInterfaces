@@ -56,7 +56,7 @@ class FlippedCardState extends State<FlippedCard>{
               endRotation = 90;
               animate = true;
             });
-            await Future.delayed(Duration(milliseconds: 400), (){
+            await Future.delayed(const Duration(milliseconds: 400), (){
               switchWidget();
             }).then((value){
               setState(() {

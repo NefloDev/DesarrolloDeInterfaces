@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trabajo_final/constants/custom-colors.dart';
+import 'package:trabajo_final/constants/custom_colors.dart';
 
 class CustomMenuButton extends StatelessWidget {
   const CustomMenuButton({

@@ -11,9 +11,10 @@ class CustomColors{
   static const Color mainBlue = Color(0xFF369EFF);
   static const Color mainLilac = Color(0xFFC5C5FF);
   static const Color mainOrange = Color(0xFFFD8C40);
+  static const Color mainRed = Color(0xFFC15C5C);
   //Alternate colors
   static const List<Color> alternateColors = [
-    Color(0xFFD15C5C),
+    mainRed,
     Color(0xFFD1785C),
     Color(0xFFD1945C),
     Color(0xFFD1C55C),

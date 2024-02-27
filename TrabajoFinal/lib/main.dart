@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trabajo_final/constants/custom-colors.dart';
+import 'package:trabajo_final/constants/custom_colors.dart';
 import 'package:trabajo_final/screens/main_screen.dart';
 
 void main() {

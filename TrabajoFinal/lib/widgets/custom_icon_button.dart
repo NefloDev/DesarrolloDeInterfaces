@@ -1,13 +1,13 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:trabajo_final/constants/custom-colors.dart';
+import 'package:trabajo_final/constants/custom_colors.dart';
 
 class CustomIconButton extends StatelessWidget {
   const CustomIconButton({
     super.key, this.left, this.right, this.top, this.bottom, required this.onPressed,
     this.icon = const Icon(Icons.u_turn_left, color: Colors.white, size: 50,),
-    this.color = CustomColors.translucentBlack, this.angle = 90, this.buttonSize = 70,
+    this.color = CustomColors.translucentBlack, this.angle = 90, this.buttonSize = 70, this.shadow = false,
   });
   final double? left;
   final double? right;
@@ -18,6 +18,7 @@ class CustomIconButton extends StatelessWidget {
   final double angle;
   final Color color;
   final double buttonSize;
+  final bool shadow;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,9 @@ class CustomIconButton extends StatelessWidget {
             onPressed: onPressed,
             icon: icon,
             style: ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll(color)
+                backgroundColor: MaterialStatePropertyAll(color),
+                elevation: MaterialStatePropertyAll(shadow ? 5 : 0),
+                shadowColor: const MaterialStatePropertyAll(Colors.black)
             ),
           ),
         )
