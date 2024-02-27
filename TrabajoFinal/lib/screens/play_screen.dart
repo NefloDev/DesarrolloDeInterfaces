@@ -1,15 +1,17 @@
+import 'dart:math';
+
 import 'package:animated_widgets/animated_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:trabajo_final/constants/custom_colors.dart';
 import 'package:trabajo_final/constants/custom_strings.dart';
 import 'package:trabajo_final/screens/main_screen.dart';
 import 'package:trabajo_final/screens/waiting_room_screen.dart';
+import 'package:trabajo_final/widgets/custom_card.dart';
 import 'package:trabajo_final/widgets/custom_icon_button.dart';
 import 'package:trabajo_final/widgets/create_new_game_card.dart';
 import 'package:trabajo_final/widgets/custom_menu_button.dart';
 import 'package:trabajo_final/widgets/diagonal_box.dart';
 import 'package:trabajo_final/widgets/flipped_card.dart';
-import 'package:trabajo_final/widgets/join_new_game_card.dart';
 
 class PlayScreen extends StatefulWidget {
   const PlayScreen({super.key});
@@ -20,6 +22,7 @@ class PlayScreen extends StatefulWidget {
 
 class PlayScreenState extends State<PlayScreen>{
   late bool animate;
+  final codeController = TextEditingController();
 
   @override
   void initState() {
@@ -131,7 +134,101 @@ class PlayScreenState extends State<PlayScreen>{
 
                             },
                           ),
-                          backWidget: const JoinNewGameCard()
+                          backWidget: CustomCard(
+                              height: 400,
+                              width: 250,
+                              color: Colors.white,
+                              child: SingleChildScrollView(
+                                child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        children: [
+                                          Transform(
+                                              transform: Matrix4.identity()..rotateZ(pi),
+                                              alignment: Alignment.center,
+                                              child: const Icon(Icons.refresh, color: Colors.black,)
+                                          )
+                                        ],
+                                      ),
+                                      const Text("Quién crees que...",
+                                        style: TextStyle(
+                                            color: Colors.grey
+                                        ),
+                                      ),
+                                      const Padding(
+                                        padding: EdgeInsets.all(10),
+                                        child: Text("Unirse a una partida existente",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              fontSize: 25,
+                                              color: Colors.black
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(10),
+                                        child: TextFormField(
+                                          controller: codeController,
+                                          decoration: const InputDecoration(
+                                              labelText: "Código(AAAA)"
+                                          ),
+                                          style: const TextStyle(
+                                              color: Colors.black
+                                          ),
+                                          onChanged: (val) {
+                                            codeController.value = TextEditingValue(
+                                                text: val.toUpperCase(),
+                                                selection: codeController.selection
+                                            );
+                                          },
+                                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                                          validator: (value){
+                                            if(value == null || value.isEmpty || value.length != 4){
+                                              return "El código debe ser\nde 4 carácteres";
+                                            }
+                                            return null;
+                                          },
+                                        ),
+                                      ),
+                                      Padding(
+                                          padding: const EdgeInsets.symmetric(vertical: 20),
+                                          child: Transform(
+                                              transform: Matrix4.identity()..rotateZ(pi),
+                                              alignment: Alignment.center,
+                                              child: IconButton(
+                                                  onPressed: () async {
+                                                    if(codeController.text.isNotEmpty && codeController.text.length == 4){
+                                                      setState(() {
+                                                        animate = false;
+                                                      });
+                                                      await Future.delayed(const Duration(milliseconds: 500), (){
+                                                        Navigator.push(context, PageRouteBuilder(pageBuilder: (_,__,___) =>
+                                                            WaitingRoomScreen(code: codeController.text)))
+                                                            .then((value){
+                                                              setState(() {
+                                                                animate = true;
+                                                              });
+                                                        });
+                                                      });
+                                                    }
+                                                  },
+                                                  icon: const Icon(Icons.arrow_back_ios_new,
+                                                    size: 40,
+                                                  ),
+                                                  color: Colors.white,
+                                                  style: const ButtonStyle(
+                                                      backgroundColor: MaterialStatePropertyAll(CustomColors.translucentBlack)
+                                                  )
+                                              )
+                                          )
+                                      )
+                                    ]
+                                ),
+                              )
+                          )
                     )
                   )
                 )
