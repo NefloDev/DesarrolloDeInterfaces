@@ -315,12 +315,11 @@ class WaitingRoomScreenState extends State<WaitingRoomScreen>{
                       duration: const Duration(milliseconds: 300),
                       child: CustomIconButton(
                           angle: 0,
-                          buttonSize: 40,
                           color: CustomColors.mainBlue,
                           icon: const Icon(
                               Icons.play_arrow,
                               color: Colors.white,
-                              size: 20),
+                              size: 35),
                           onPressed: () async {
                             setState(() {
                               animate = false;
